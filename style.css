@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    background-color: #2b1b17;
+    color: #f4e9d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background: linear-gradient(145deg, #3c2a24, #1f1712);
+    border: 4px solid #a77b4b;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(167, 123, 75, 0.7);
+    width: 95vw;
+    max-width: 1200px;
+    height: 95vh;
+    overflow-y: auto;
+    margin-top: 5rem;
+    scrollbar-width: none; /* Firefox */
+}
+
+#container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* Search Bar */
+#searchBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 85%;
+    position: fixed;
+    top: 1rem;
+}
+
+#searchBar input {
+    padding: 12px;
+    border: 2px solid #a77b4b;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    width: 80%;
+    background-color: #40302a;
+    color: #f4e9d8;
+    font-size: 16px;
+}
+
+#searchBar button {
+    padding: 12px 20px;
+    border: 2px solid #a77b4b;
+    border-radius: 0 10px 10px 0;
+    background-color: #7c5135;
+    color: #f4e9d8;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+}
+
+#searchBar button:hover {
+    background-color: #9b6a44;
+    transform: scale(1.05);
+}
+
+/* Video Log */
+#videoLog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+}
+
+/* Video Card */
+.card {
+    background-color: #3c2a24;
+    border: 2px solid #a77b4b;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 220px;
+    cursor: pointer;
+    height: 334px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Thumbnail Image */
+.thubnailimage {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Video Details */
+.videoDetails {
+    padding: 10px;
+}
+
+.videoTitle {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #d1b18a;
+}
+
+.channelTitle {
+    font-size: 0.9rem;
+    color: #b18d6a;
+    margin-bottom: 4px;
+}
+
+.Views {
+    font-size: 0.8rem;
+    color: #8b6c54;
+}
+
+/* Responsive Styling */
+@media (max-width: 1200px) {
+    #videoLog {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 950px) {
+    #videoLog {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #searchBar {
+        width: 95%;
+    }
+    #videoLog {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    .thubnailimage {
+        height: 120px;
+    }
+    .videoTitle {
+        font-size: 1rem;
+    }
+    .channelTitle {
+        font-size: 0.85rem;
+    }
+    .card {
+        width: 100%;
+
+    }
+}
+
+@media (max-width: 480px) {
+    #videoLog {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    .thubnailimage {
+        height: 100px;
+    }
+    .videoTitle {
+        font-size: 0.9rem;
+    }
+    .channelTitle {
+        font-size: 0.75rem;
+    }
+    .card {
+        width: 100%;
+        height: 270px;
+    }
+}
+
+#videoLog > .card {
+    margin: auto;
+    max-width: 250px;
+}
+
+#videoLog > .card:only-child,
+#videoLog > .card:nth-child(2):nth-last-child(1),
+#videoLog > .card:nth-child(3):nth-last-child(2),
+#videoLog > .card:nth-child(4):nth-last-child(3) {
+    margin: 0 auto;
+    width: 250px;
+}
